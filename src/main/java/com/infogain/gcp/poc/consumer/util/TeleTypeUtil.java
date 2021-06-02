@@ -20,15 +20,19 @@ public class TeleTypeUtil {
 
         TeletypeEventDTO teletypeEventDTO = (TeletypeEventDTO) unmarshaller.unmarshal(new StringReader(message));
 
-        log.info("Teletypedto generated : {}", teletypeEventDTO);
+        log.info("Teletype dto generated : {}", teletypeEventDTO);
 
         return teletypeEventDTO;
     }
 
-    public static TeleTypeEntity convert(TeletypeEventDTO teletypeEventDTO, String message) {
+    public static TeleTypeEntity convert(TeletypeEventDTO teletypeEventDTO, String message, Integer sequenceNumber) {
+
+        //TODO: value of sequence number could be anything - decide later.
         return TeleTypeEntity.builder()
                 .hostLocator(teletypeEventDTO.getHostRecordLocator())
                 .carrierCode(teletypeEventDTO.getCarrierCode())
+                .messageCorelationId(String.valueOf(teletypeEventDTO.getMessageCorelationId()))
+                .sequenceNumber(Long.valueOf(sequenceNumber))
                 .createdTimestamp(Timestamp.now())
                 .payload(message)
                 .build();

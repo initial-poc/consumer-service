@@ -16,8 +16,9 @@ import javax.xml.bind.JAXBException;
 @RequiredArgsConstructor
 public class TeleTypeServiceImpl implements TeleTypeService {
 
-    private final TASRepository tasRepository;
+    private static final Integer DEFAULT_SEQUENCE_NUMBER = 10;
 
+    private final TASRepository tasRepository;
 
     @Override
     public void processMessage(String message) throws JAXBException {
@@ -25,7 +26,7 @@ public class TeleTypeServiceImpl implements TeleTypeService {
         TeletypeEventDTO teletypeEventDTO = TeleTypeUtil.unmarshall(message);
         log.info("object unmarshalled : {}", teletypeEventDTO);
 
-        TeleTypeEntity teleTypeEntity = TeleTypeUtil.convert(teletypeEventDTO, message);
+        TeleTypeEntity teleTypeEntity = TeleTypeUtil.convert(teletypeEventDTO, message, DEFAULT_SEQUENCE_NUMBER);
         log.info("converting dto to entity : {}", teleTypeEntity);
 
         saveMessage(teleTypeEntity);

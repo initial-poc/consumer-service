@@ -15,13 +15,16 @@ import org.springframework.data.annotation.Id;
 @Table(name = "TAS")
 public class TeleTypeEntity {
 
-    @PrimaryKey(keyOrder = 1)
+    @PrimaryKey
     @Column(name = "TAS_ID")
     @Id
     private Long tasId;
 
     @Column(name = "HOST_LOCATOR")
     private String hostLocator;
+
+    @Column(name = "MESSAGE_CORELATION_ID")
+    private String messageCorelationId;
 
     @Column(name = "CARRIER_CODE")
     private String carrierCode;
