@@ -38,5 +38,6 @@ public class TeleTypeServiceImpl implements TeleTypeService {
         log.info(teleTypeEntity.toString());
 
         tasRepository.save(teleTypeEntity);
+        log.info("message has been stored in db successfully.");
     }
 }

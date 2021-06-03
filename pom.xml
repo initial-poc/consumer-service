@@ -155,7 +155,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.infogain.gcp.poc.App</mainClass>
+					<mainClass>com.infogain.gcp.poc.consumer.ConsumerServiceApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

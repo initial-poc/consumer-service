@@ -9,6 +9,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.StringReader;
+import java.util.UUID;
 
 @Slf4j
 public class TeleTypeUtil {
@@ -29,9 +30,10 @@ public class TeleTypeUtil {
 
         //TODO: value of sequence number could be anything - decide later.
         return TeleTypeEntity.builder()
+                .tasId(UUID.randomUUID().toString())
                 .hostLocator(teletypeEventDTO.getHostRecordLocator())
                 .carrierCode(teletypeEventDTO.getCarrierCode())
-                .messageCorelationId(String.valueOf(teletypeEventDTO.getMessageCorelationId()))
+                .messageCorrelationId(String.valueOf(teletypeEventDTO.getMessageCorelationId()))
                 .sequenceNumber(Long.valueOf(sequenceNumber))
                 .createdTimestamp(Timestamp.now())
                 .payload(message)

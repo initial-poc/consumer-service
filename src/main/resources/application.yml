@@ -17,7 +17,7 @@ logging:
   pattern.console: '%d{yyyy-MM-dd HH:mm:ss} [%X{source}] [%X{correlation-id}] [%-5level] [%C:%L] - %m%n'
   level.org.springframework: info
   file:
-    name: logs/spanner-pollar-converter-publisher/app.log
+    name: logs/consumer-service/app.log
 
 # actuator properties
 management:
@@ -27,8 +27,8 @@ management:
 
 info:
   app:
-    name: spanner-pollar-convereter-publisher
-    description: Google cloud spanner poller converter publisher
+    name: consumer-service
+    description: consume message from subscription and store in database
     version: 1.0.0
     java-vendor: ${java.specification.vendor}
 

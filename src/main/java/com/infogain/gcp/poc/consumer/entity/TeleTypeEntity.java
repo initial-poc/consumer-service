@@ -18,13 +18,13 @@ public class TeleTypeEntity {
     @PrimaryKey
     @Column(name = "TAS_ID")
     @Id
-    private Long tasId;
+    private String tasId;
 
     @Column(name = "HOST_LOCATOR")
     private String hostLocator;
 
-    @Column(name = "MESSAGE_CORELATION_ID")
-    private String messageCorelationId;
+    @Column(name = "MESSAGE_CORRELATION_ID")
+    private String messageCorrelationId;
 
     @Column(name = "CARRIER_CODE")
     private String carrierCode;
